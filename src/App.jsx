@@ -1,36 +1,51 @@
 const App = () => {
-  const miObjeto = {
-    nombre: "Naruto",
-    Apellido: "Uzumaki",
-    Edad: 16,
-
+  //  const miArreglo =[1, 2, 3, 4, 5];
+  // SPREAD
+  const persona = {
+    nombre: "Obed",
+    apellido: "Nolasco",
+    edad: 21,
     direccion: {
-      calle: "Paseo de las palmas",
-      numExt: 618,
-      numIn: "",
-      ciudad: "Konohagakure",
+      calle: "Avenida Siempre Viva",
+      numExt: 742,
+      numInt: "",
+      ciudad: "Springflied",
     },
   };
 
-  const { Edad, nombre, Apellido } = miObjeto;
-  const { calle, numExt, ciudad } = miObjeto.direccion;
-  const familia = ["Minato", "Kushina", "Sasuke", "Sakura"];
-  const [padre, madre, hermano, hermana] = familia;
+  const contactoPersona = {
+    telefono: "2871234557",
+    email: "bart.s@live.com",
+    web: "www.thesimpsons.com",
+  };
+
+  const inforPersona = { ...persona, ...contactoPersona, empresa: "Disney" };
+  inforPersona.apodo = "Bart";
+
+  //console.table(inforPersona)
+
+  const { edad, nombre, apellido } = persona;
+  const { calle, numExt, ciudad } = persona.direccion;
+  const humanos = ["Homer", "Margorie", "Lisa", "Maggie"];
+  const [padre, madre, hermana1, hermana2] = humanos;
+  const mascotas = ["Santa's helper", "snow ball"];
+
+  const familia = [...humanos, ...mascotas, "Michelle", "citlalli"];
+  console.log(familia);
 
   return (
     <div className="App">
-      {/*ECMAScript 6*/}
-      <h3>{`Mi nombre es ${nombre}
-       ${Apellido}, tengo ${Edad} años y vivo en ${calle} número ${numExt}, ${ciudad}`}</h3>
+      {/*EcmaScript 6 */}
+      <h3>{`Mi nombre es ${nombre} ${apellido}, tengo ${edad} años y 
+      vivo en ${calle} número ${numExt}, ${ciudad}`}</h3>
       <br />
-      {"Mi familia lo conforman: "}
+      {"Mi familia la conforman:"}
       <ul>
-        <li>{`Mi padre: ${padre}`}</li>
+        <li>{`Mi padre es: ${padre}`}</li>
         <li>{`Mi madre: ${madre}`}</li>
-        <li>{`Mi hermanos: ${hermano} y ${hermana}`}</li>
+        <li>{`Mis hermanas: ${hermana1} y ${hermana2}`}</li>
       </ul>
     </div>
   );
 };
-
 export default App;
